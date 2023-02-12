@@ -1,23 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Display from "./Display";
 
 function Form() {
+  const [todo, setTodo] = useState([]);
   const [formData, setFormData] = useState({
     list: "",
     start: "",
     end: "",
-    box: "",
     description: "",
   });
 
+  useEffect(() => {
+    fetch("http://localhost:5001/todo")
+      .then((res) => res.json())
+      .then((data) => setTodo(data));
+  }, []);
+
   function handleSubmit(e) {
     e.preventDefault();
+    setFormData({ ...formData });
+
+    fetch("  http://localhost:5001/todo", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => document.location.reload());
   }
 
   function handleChange(e) {
     e.preventDefault();
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
-  console.log(formData);
 
   return (
     <>
@@ -28,7 +45,6 @@ function Form() {
           onChange={handleChange}
           type="text"
           name="list"
-          id="name"
           value={formData.list}
         />
         <label htmlFor="name">Start:</label>
@@ -36,7 +52,6 @@ function Form() {
           onChange={handleChange}
           type="date"
           name="start"
-          id="name"
           value={formData.start}
         />
         <label htmlFor="name">Finish:</label>
@@ -44,7 +59,6 @@ function Form() {
           onChange={handleChange}
           type="date"
           name="end"
-          id="name"
           value={formData.end}
         />
         <label htmlFor="name">Check if completed:</label>
@@ -53,11 +67,11 @@ function Form() {
         <textarea
           onChange={handleChange}
           name="description"
-          id="name"
           value={formData.description}
         />
         <input type="submit" value="Submit" />
       </form>
+      <Display formData={formData} todo={todo} />
     </>
   );
 }

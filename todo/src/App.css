@@ -63,3 +63,44 @@ form {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
   background-color: white;
 }
+.upline {
+/* align-items: center; */
+text-align: center;
+}
+
+
+.cards {
+  margin: auto;
+  height: fit-content;
+  width: calc(33.33% - 10px);
+  background-color: rgb(255, 255, 255);
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+  padding: 20px 20px 20px 20px;
+  border-radius: 10px;
+  line-height: 30px;
+  text-align: left;
+  margin-top: 2pc;
+}
+
+.cards:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+  background-color: antiquewhite;
+  ;
+}
+
+.upline {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  display:inline-flex;
+}
+
+.head1 {
+  text-align: center;
+}
+
+span {
+  font-size: 18px;
+  font-weight: lighter;
+}
