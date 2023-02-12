@@ -81,12 +81,13 @@ text-align: center;
   line-height: 30px;
   text-align: left;
   margin-top: 2pc;
+  transition: transform 0.2s ease-in-out;
 }
 
 .cards:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
   background-color: antiquewhite;
-  ;
+  transform: scale(1.1);
 }
 
 .upline {
@@ -104,3 +105,44 @@ span {
   font-size: 18px;
   font-weight: lighter;
 }
+
+.bttn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  background-color: antiquewhite; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10px;
+  color: black;
+}
+
+.btn {
+  background-color:  antiquewhite; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10px;
+  color: black;
+
+  }
+
+  .button:hover{
+    background-color: white;
+  }
+
+  .btn:hover{
+    background-color: white;
+  }
+
